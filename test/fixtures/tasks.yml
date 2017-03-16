@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: MyString
+  date_due: 2017-03-16 15:57:16
+  status: false
+  users_id: 
+
+two:
+  task: MyString
+  date_due: 2017-03-16 15:57:16
+  status: false
+  users_id: 
