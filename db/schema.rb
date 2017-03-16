@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20170316155716) do
     t.string   "task"
     t.datetime "date_due"
     t.boolean  "status"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "tasks", ["users_id"], name: "index_tasks_on_users_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

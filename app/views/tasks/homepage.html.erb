@@ -1,2 +1,59 @@
-<h1>Tasks#homepage</h1>
-<p>Find me in app/views/tasks/homepage.html.erb</p>
+<h1>ToDo</h1>
+
+
+
+
+<table>
+  <th>
+    <tr></tr>
+    <tr>Status</tr>
+    <tr>Task: </tr>
+    <tr>Due Date:</tr>
+  </th>
+  <tr>
+    <% @tasks.each do |task| %>
+    <!-- /update/<%=task.id%> -->
+
+
+    <form id="form-<%=task.id%>" action="/update/<%=task.id%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="task.status" value="<% task.status%>">
+      <td>
+        <input
+          type="checkbox"
+          class="<%=task.id%>"
+          id="checkbox-<%=task.id%>"
+          name=""
+          value=""
+          <% if task.status %>
+            checked="checked"
+          <% end %>
+        >
+      </td>
+      <td><%=task.status%></td>
+    </form>
+
+    <script>
+       $(function(){
+
+        $('#checkbox-<%=task.id%>').on('change',function(){
+              $('#form-<%=task.id%>').submit();
+           });
+       });
+   </script>
+
+
+    <td><%=task.task%></td>
+    <td><%=task.date_due%></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<br>
+<br>
+
+<a href="/toggleview">Toggle View</a>
+<a href="/logout">Logout</a>
+<a href="/tasks/createtask">Create</a>

@@ -1,2 +1,9 @@
 <h1>Tasks#createtask</h1>
+
+<form action="/tasks/postcreatetask" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>Task: <input type="text" name="task"value=""></p>
+    <p>Due Date<input type = "date" name = "date_due"value="" ></p>
+    <input type="submit" name="" value="Create Task">
+</form>
 <p>Find me in app/views/tasks/createtask.html.erb</p>

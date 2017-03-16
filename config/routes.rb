@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'tasks#homepage'
 
-  get 'tasks/createtask'
+  get 'tasks/createtask'=>'tasks#getcreatetask'
 
   get 'tasks/updatetask'
 
+  post 'tasks/postcreatetask'=>"tasks#postcreatetask"
 
   get "user/login" => "users#login"
 
@@ -13,6 +14,12 @@ Rails.application.routes.draw do
   post "user/register" => "users#registration"
 
   get 'users/validation'
+
+  get 'logout' => "users#logout"
+
+  patch "update/:id" => "tasks#updatetask"
+
+  get 'toggleview' => "tasks#toggle_visibility"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
