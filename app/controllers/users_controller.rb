@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def postlogin
     @user = User.find(username: params[:username], password: params[:password])
     if @user
-      session[:user.id] = @user.id
+      session[:user_id] = @user.id
       redirect_to "/homepage"
     else
       flash[:errors] = ["User not found"]
@@ -15,6 +15,15 @@ class UsersController < ApplicationController
   end
 
   def registration
+    @user = User.find_by(username: params[:username], password: params[:password])
+    if !@user
+      @user = User.create(username: params[:username], password: params[:password])
+      session[:user_id] = @user.id
+      redirect_to "/"
+    else
+      flash[:errors] = ["User not found"]
+      redirect_to "/user/login"
+    end
   end
 
   def validation

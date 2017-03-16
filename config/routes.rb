@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post "user/login" => "users#postlogin"
 
-  get 'users/registration'
+  post "user/register" => "users#registration"
 
   get 'users/validation'
 
