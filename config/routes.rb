@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'tasks/homepage'
+  root 'tasks#homepage'
 
   get 'tasks/createtask'
 
   get 'tasks/updatetask'
 
-  get 'users/login'
+
+  get "user/login" => "users#login"
+
+  post "user/login" => "users#postlogin"
 
   get 'users/registration'
 

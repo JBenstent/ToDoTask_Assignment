@@ -1,5 +1,11 @@
 class TasksController < ApplicationController
   def homepage
+    @user = User.find_by(id: session[:user_id])
+    if @user
+      render "homepage"
+    else
+      redirect_to "/user/login"
+    end
   end
 
   def createtask
@@ -7,4 +13,6 @@ class TasksController < ApplicationController
 
   def updatetask
   end
+
+
 end
